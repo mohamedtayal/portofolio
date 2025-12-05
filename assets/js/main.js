@@ -1,5 +1,6 @@
 /**
  * Main Application - Navigation, Projects, Modal, Filters
+ * Improved with better accessibility and performance
  */
 const App = {
     currentFilter: 'all',
@@ -28,19 +29,24 @@ const App = {
     },
 
     bindEvents() {
-        // Mobile menu
+        // Mobile menu toggle
         if (this.navToggle) {
             this.navToggle.addEventListener('click', () => {
-                this.navMenu.classList.toggle('active');
+                const isOpen = this.navMenu.classList.toggle('active');
                 this.navToggle.classList.toggle('active');
+                this.navToggle.setAttribute('aria-expanded', isOpen);
             });
         }
 
-        // Search
+        // Search with debounce
         if (this.projectSearch) {
+            let debounceTimer;
             this.projectSearch.addEventListener('input', (e) => {
-                this.searchQuery = e.target.value.toLowerCase();
-                this.filterProjects();
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    this.searchQuery = e.target.value.toLowerCase();
+                    this.filterProjects();
+                }, 200);
             });
         }
 
@@ -53,7 +59,7 @@ const App = {
             });
         }
 
-        // Modal
+        // Modal close handlers
         if (this.modalClose) {
             this.modalClose.addEventListener('click', () => this.closeModal());
         }
@@ -70,7 +76,7 @@ const App = {
             });
         }
 
-        // Keyboard
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (this.lightbox?.classList.contains('active')) this.closeLightbox();
@@ -79,13 +85,14 @@ const App = {
         });
 
         // Scroll spy
-        window.addEventListener('scroll', () => this.updateActiveNav());
+        window.addEventListener('scroll', () => this.updateActiveNav(), { passive: true });
 
         // Close mobile menu on link click
         document.querySelectorAll('.navbar__link').forEach(link => {
             link.addEventListener('click', () => {
                 this.navMenu?.classList.remove('active');
                 this.navToggle?.classList.remove('active');
+                this.navToggle?.setAttribute('aria-expanded', 'false');
             });
         });
     },
@@ -109,11 +116,17 @@ const App = {
             card.addEventListener('click', () => {
                 this.openModal(parseInt(card.dataset.id));
             });
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.openModal(parseInt(card.dataset.id));
+                }
+            });
         });
 
-        // Animate
-        const cards = this.projectsGrid.querySelectorAll('.project-card');
+        // Animate cards
         if (typeof Animations !== 'undefined') {
+            const cards = this.projectsGrid.querySelectorAll('.project-card');
             Animations.animateProjectCards(cards, this.currentFilter !== 'all' || this.searchQuery !== '');
         }
     },
@@ -121,24 +134,24 @@ const App = {
     createCard(p) {
         const hasImage = p.image && p.image.length > 0;
         return `
-            <article class="project-card" data-id="${p.id}" data-category="${p.category}">
+            <article class="project-card" data-id="${p.id}" data-category="${p.category}" tabindex="0" role="button" aria-label="View ${p.title} project details">
                 <div class="project-card__img">
                     ${hasImage 
-                        ? `<img src="${p.image}" alt="${p.title}" loading="lazy">`
-                        : `<div class="project-card__img-placeholder">${p.icon}</div>`
+                        ? `<img src="${p.image}" alt="${p.title} project screenshot" loading="lazy">`
+                        : `<div class="project-card__img-placeholder" aria-hidden="true">${p.icon}</div>`
                     }
                     <span class="project-card__category">${p.category}</span>
                 </div>
                 <div class="project-card__body">
                     <h3 class="project-card__title">${p.title}</h3>
                     <p class="project-card__summary">${p.summary}</p>
-                    <div class="project-card__tags">
+                    <div class="project-card__tags" aria-label="Technologies used">
                         ${p.tags.slice(0, 3).map(t => `<span class="project-card__tag">${t}</span>`).join('')}
                     </div>
                     <div class="project-card__footer">
                         <span class="project-card__link">
                             View Details
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M7 17L17 7M17 7H7M17 7V17"/>
                             </svg>
                         </span>
@@ -180,6 +193,9 @@ const App = {
         this.modal.classList.add('active');
         document.body.style.overflow = 'hidden';
 
+        // Focus trap
+        this.modalClose.focus();
+
         // Bind copy buttons
         this.modalContent.querySelectorAll('.code-block__copy').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -201,7 +217,7 @@ const App = {
         return `
             <div class="modal__header">
                 <span class="modal__cat">${p.category}</span>
-                <h2 class="modal__title">${p.title}</h2>
+                <h2 class="modal__title" id="modalTitle">${p.title}</h2>
                 <p class="modal__summary">${p.summary}</p>
             </div>
 
@@ -269,8 +285,8 @@ const App = {
                 <div class="code-block">
                     <div class="code-block__header">
                         <span class="code-block__lang">bash</span>
-                        <button class="code-block__copy">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <button class="code-block__copy" type="button" aria-label="Copy code">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <rect x="9" y="9" width="13" height="13" rx="2"/>
                                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
                             </svg>
@@ -289,9 +305,9 @@ const App = {
             </div>
 
             <div class="modal__actions">
-                <a href="${p.repoUrl}" target="_blank" class="btn btn--primary">
+                <a href="${p.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
                     <span>View Repository</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                         <polyline points="15 3 21 3 21 9"/>
                         <line x1="10" y1="14" x2="21" y2="3"/>
@@ -383,14 +399,16 @@ const App = {
     }
 };
 
+// Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     App.init();
     FAQ.init();
     Certificates.init();
 });
 
+
 /**
- * FAQ Accordion
+ * FAQ Accordion with accessibility
  */
 const FAQ = {
     init() {
@@ -398,18 +416,29 @@ const FAQ = {
         items.forEach(item => {
             const question = item.querySelector('.faq__question');
             question.addEventListener('click', () => this.toggle(item, items));
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.toggle(item, items);
+                }
+            });
         });
     },
     
     toggle(item, allItems) {
         const isActive = item.classList.contains('active');
+        const question = item.querySelector('.faq__question');
         
         // Close all items
-        allItems.forEach(i => i.classList.remove('active'));
+        allItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+        });
         
         // Open clicked item if it wasn't active
         if (!isActive) {
             item.classList.add('active');
+            question.setAttribute('aria-expanded', 'true');
         }
     }
 };
@@ -418,7 +447,6 @@ const FAQ = {
  * Certificates Handler
  */
 const Certificates = {
-    // List of PDF certificates from the project folder
     certificates: [
         { file: "Certificate _ EYouth Business.pdf", title: "EYouth Business Certificate", desc: "Professional business training completion" },
         { file: "Certificate _ EYouth Business 2.pdf", title: "EYouth Business Certificate II", desc: "Advanced business skills certification" },
@@ -454,10 +482,10 @@ const Certificates = {
     
     createCard(cert) {
         return `
-            <div class="cert-card" data-file="${cert.file}">
+            <article class="cert-card" data-file="${cert.file}" role="listitem">
                 <div class="cert-card__preview">
                     <div class="cert-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                             <polyline points="14 2 14 8 20 8"/>
                             <line x1="16" y1="13" x2="8" y2="13"/>
@@ -468,24 +496,24 @@ const Certificates = {
                 </div>
                 <div class="cert-card__body">
                     <div class="cert-card__badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <circle cx="12" cy="8" r="6"/>
                             <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
                         </svg>
                         Certificate
                     </div>
-                    <h4 class="cert-card__title">${cert.title}</h4>
+                    <h3 class="cert-card__title">${cert.title}</h3>
                     <p class="cert-card__desc">${cert.desc}</p>
                     <div class="cert-card__actions">
-                        <button class="cert-card__btn cert-card__btn--view" data-action="view">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <button class="cert-card__btn cert-card__btn--view" data-action="view" type="button" aria-label="View ${cert.title}">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                                 <circle cx="12" cy="12" r="3"/>
                             </svg>
                             View
                         </button>
-                        <a href="${cert.file}" download class="cert-card__btn cert-card__btn--download">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <a href="${cert.file}" download class="cert-card__btn cert-card__btn--download" aria-label="Download ${cert.title}">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                                 <polyline points="7 10 12 15 17 10"/>
                                 <line x1="12" y1="15" x2="12" y2="3"/>
@@ -494,11 +522,10 @@ const Certificates = {
                         </a>
                     </div>
                 </div>
-            </div>`;
+            </article>`;
     },
     
     bindEvents() {
-        // View buttons
         this.grid.addEventListener('click', (e) => {
             const viewBtn = e.target.closest('[data-action="view"]');
             if (viewBtn) {
@@ -509,7 +536,6 @@ const Certificates = {
             }
         });
         
-        // Close modal
         if (this.modalClose) {
             this.modalClose.addEventListener('click', () => this.closeModal());
         }
@@ -518,7 +544,6 @@ const Certificates = {
             this.modal.querySelector('.pdf-modal__backdrop').addEventListener('click', () => this.closeModal());
         }
         
-        // Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.modal?.classList.contains('active')) {
                 this.closeModal();

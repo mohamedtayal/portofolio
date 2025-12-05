@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mohamed Tayal - Data Mining Portfolio | AI Student at Delta University">
+    <meta name="description" content="Mohamed Tayal - Data Mining Portfolio | AI Student at Delta University specializing in machine learning, data analysis, and predictive modeling.">
+    <meta name="keywords" content="Data Mining, Machine Learning, AI, Python, Data Science, Mohamed Tayal, Delta University">
+    <meta name="author" content="Mohamed Tayal">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Mohamed Tayal | Data Mining Portfolio">
+    <meta property="og:description" content="AI Student & Data Mining Specialist - Transforming data into actionable insights">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#5B4FE9">
     <title>Mohamed Tayal | Data Mining Portfolio</title>
     
-    <!-- Fonts -->
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Floating Shapes Background -->
-    <div class="floating-shapes" id="floatingShapes">
+    <div class="floating-shapes" aria-hidden="true">
         <div class="shape shape--circle shape--1"></div>
         <div class="shape shape--triangle shape--2"></div>
         <div class="shape shape--square shape--3"></div>
@@ -29,656 +39,650 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="navbar__container">
-            <a href="#hero" class="navbar__logo">
-                <div class="logo-badge">
-                    <div class="logo-badge__glow"></div>
-                    <div class="logo-badge__inner">
-                        <span class="logo-badge__text">MT</span>
+    <header>
+        <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+            <div class="navbar__container">
+                <a href="#hero" class="navbar__logo" aria-label="Mohamed Tayal - Home">
+                    <div class="logo-badge">
+                        <div class="logo-badge__glow"></div>
+                        <div class="logo-badge__inner">
+                            <span class="logo-badge__text">MT</span>
+                        </div>
+                        <div class="logo-badge__shine"></div>
                     </div>
-                    <div class="logo-badge__shine"></div>
-                </div>
-                <div class="logo-name">
-                    <span class="logo-name__first">Mohamed</span>
-                    <span class="logo-name__last">Tayal</span>
-                </div>
-            </a>
-            
-            <ul class="navbar__menu" id="navMenu">
-                <li><a href="#hero" class="navbar__link active">Home</a></li>
-                <li><a href="#about" class="navbar__link">About</a></li>
-                <li><a href="#projects" class="navbar__link">Projects</a></li>
-                <li><a href="#certificates" class="navbar__link">Certificates</a></li>
-                <li><a href="#contact" class="navbar__link">Contact</a></li>
-            </ul>
-            
-            <div class="navbar__actions">
-                <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
-                    <svg class="theme-btn__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"/>
-                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                    </svg>
-                    <svg class="theme-btn__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
-                </button>
-                <a href="assets/resume.html" target="_blank" class="navbar__cta">
-                    <span>Resume</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                    </svg>
+                    <div class="logo-name">
+                        <span class="logo-name__first">Mohamed</span>
+                        <span class="logo-name__last">Tayal</span>
+                    </div>
                 </a>
-                <button class="navbar__toggle" id="navToggle" aria-label="Menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero__glow hero__glow--1"></div>
-        <div class="hero__glow hero__glow--2"></div>
-        
-        <div class="hero__container">
-            <div class="hero__content">
-                <div class="hero__badge">
-                    <span class="hero__badge-dot"></span>
-                    Delta University for Science & Technology
-                </div>
                 
-                <h1 class="hero__title">
-                    <span class="hero__title-line">Discover the Power of</span>
-                    <span class="hero__title-highlight">Data Mining</span>
-                </h1>
+                <ul class="navbar__menu" id="navMenu" role="menubar">
+                    <li role="none"><a href="#hero" class="navbar__link active" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#about" class="navbar__link" role="menuitem">About</a></li>
+                    <li role="none"><a href="#projects" class="navbar__link" role="menuitem">Projects</a></li>
+                    <li role="none"><a href="#certificates" class="navbar__link" role="menuitem">Certificates</a></li>
+                    <li role="none"><a href="#contact" class="navbar__link" role="menuitem">Contact</a></li>
+                </ul>
                 
-                <p class="hero__subtitle">AI Student & Data Science Enthusiast</p>
-                
-                <p class="hero__desc">
-                    Transforming complex datasets into actionable insights using machine learning 
-                    and advanced data mining techniques. Building intelligent solutions for real-world impact.
-                </p>
-                
-                <div class="hero__buttons">
-                    <a href="#projects" class="btn btn--primary">
-                        <span>Explore Projects</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                <div class="navbar__actions">
+                    <button class="theme-btn" id="themeToggle" aria-label="Toggle dark/light theme" type="button">
+                        <svg class="theme-btn__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <svg class="theme-btn__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                    <a href="assets/resume.html" target="_blank" rel="noopener" class="navbar__cta">
+                        <span>Resume</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
                         </svg>
                     </a>
-                    <a href="#about" class="btn btn--outline">Learn More</a>
-                </div>
-                
-                <div class="hero__stats">
-                    <div class="hero__stat">
-                        <span class="hero__stat-num">6+</span>
-                        <span class="hero__stat-text">Projects</span>
-                    </div>
-                    <div class="hero__stat-line"></div>
-                    <div class="hero__stat">
-                        <span class="hero__stat-num">8+</span>
-                        <span class="hero__stat-text">Tools</span>
-                    </div>
-                    <div class="hero__stat-line"></div>
-                    <div class="hero__stat">
-                        <span class="hero__stat-num">5+</span>
-                        <span class="hero__stat-text">Techniques</span>
-                    </div>
+                    <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" type="button">
+                        <span></span><span></span><span></span>
+                    </button>
                 </div>
             </div>
-            
-            <div class="hero__visual">
-                <!-- Profile Photo -->
-                <div class="hero__profile">
-                    <div class="hero__profile-glow"></div>
-                    <div class="hero__profile-ring"></div>
-                    <div class="hero__profile-frame">
-                        <img src="assets/images/bd4a45d2-6900-4a9e-920a-21a1c41b4893.png" alt="Mohamed Tayal" class="hero__profile-img">
-                    </div>
-                    <div class="hero__profile-badge">
-                        <span>🎓</span> AI Student
-                    </div>
-                </div>
-                
-                <div class="hero__tag hero__tag--1"><span>🤖</span> Machine Learning</div>
-                <div class="hero__tag hero__tag--2"><span>🐍</span> Python</div>
-                <div class="hero__tag hero__tag--3"><span>📈</span> Analytics</div>
-                <div class="hero__tag hero__tag--4"><span>🧠</span> Deep Learning</div>
-                
-                <div class="hero__orb"></div>
-            </div>
-        </div>
-        
-        <div class="hero__scroll">
-            <span>Scroll to explore</span>
-            <div class="hero__scroll-bar"><div class="hero__scroll-dot"></div></div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about__container">
-            <div class="section-head">
-                <span class="section-head__tag">About</span>
-                <h2 class="section-head__title">Data Mining Journey</h2>
-                <p class="section-head__desc">Exploring the science of discovering patterns in large datasets</p>
-            </div>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+            <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
+            <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
             
-            <!-- About Profile Card -->
-            <div class="about__profile-card">
-                <div class="about__profile-photo">
-                    <div class="about__profile-glow"></div>
-                    <div class="about__profile-frame">
-                        <img src="assets/images/bd4a45d2-6900-4a9e-920a-21a1c41b4893.png" alt="Mohamed Tayal" class="about__profile-img">
+            <div class="hero__container">
+                <div class="hero__content">
+                    <div class="hero__badge">
+                        <span class="hero__badge-dot" aria-hidden="true"></span>
+                        Delta University for Science & Technology
                     </div>
-                </div>
-                <div class="about__profile-info">
-                    <h3 class="about__profile-name">Mohamed Tayal</h3>
-                    <p class="about__profile-role">AI Student & Data Mining Specialist</p>
-                    <p class="about__profile-bio">Passionate about transforming raw data into meaningful insights. Currently pursuing AI at Delta University with a focus on machine learning and data mining techniques.</p>
-                    <div class="about__profile-tags">
-                        <span>🎓 Delta University</span>
-                        <span>🤖 AI Enthusiast</span>
-                        <span>📊 Data Lover</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="about__grid">
-                <div class="about__main">
-                    <h3 class="about__heading">Course Overview</h3>
-                    <p class="about__text">
-                        The Data Mining course at Delta University provides comprehensive training in extracting 
-                        valuable knowledge from large datasets. Through hands-on projects and theoretical foundations, 
-                        I've developed expertise in the complete data mining pipeline.
+                    
+                    <h1 class="hero__title" id="hero-title">
+                        <span class="hero__title-line">Discover the Power of</span>
+                        <span class="hero__title-highlight">Data Mining</span>
+                    </h1>
+                    
+                    <p class="hero__subtitle">AI Student & Data Science Enthusiast</p>
+                    
+                    <p class="hero__desc">
+                        Transforming complex datasets into actionable insights using machine learning 
+                        and advanced data mining techniques. Building intelligent solutions for real-world impact.
                     </p>
                     
-                    <div class="about__topics">
-                        <div class="topic-card">
-                            <span class="topic-card__icon">🔧</span>
-                            <div class="topic-card__content">
-                                <strong>Data Preprocessing</strong>
-                                <p>Cleaning, normalization, handling missing values</p>
-                            </div>
+                    <div class="hero__buttons">
+                        <a href="#projects" class="btn btn--primary">
+                            <span>Explore Projects</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#about" class="btn btn--outline">Learn More</a>
+                    </div>
+                    
+                    <div class="hero__stats" role="list" aria-label="Statistics">
+                        <div class="hero__stat" role="listitem">
+                            <span class="hero__stat-num">6+</span>
+                            <span class="hero__stat-text">Projects</span>
                         </div>
-                        <div class="topic-card">
-                            <span class="topic-card__icon">⚙️</span>
-                            <div class="topic-card__content">
-                                <strong>Feature Engineering</strong>
-                                <p>Selection, extraction, transformation</p>
-                            </div>
+                        <div class="hero__stat-line" aria-hidden="true"></div>
+                        <div class="hero__stat" role="listitem">
+                            <span class="hero__stat-num">8+</span>
+                            <span class="hero__stat-text">Tools</span>
                         </div>
-                        <div class="topic-card">
-                            <span class="topic-card__icon">🧠</span>
-                            <div class="topic-card__content">
-                                <strong>Modeling Techniques</strong>
-                                <p>Classification, clustering, association rules</p>
-                            </div>
-                        </div>
-                        <div class="topic-card">
-                            <span class="topic-card__icon">📊</span>
-                            <div class="topic-card__content">
-                                <strong>Model Evaluation</strong>
-                                <p>Cross-validation, metrics, hyperparameter tuning</p>
-                            </div>
+                        <div class="hero__stat-line" aria-hidden="true"></div>
+                        <div class="hero__stat" role="listitem">
+                            <span class="hero__stat-num">5+</span>
+                            <span class="hero__stat-text">Techniques</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="about__skills">
-                    <h3 class="about__heading">Skills & Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item"><span>🐍</span> Python</div>
-                        <div class="skill-item"><span>🐼</span> pandas</div>
-                        <div class="skill-item"><span>🔢</span> NumPy</div>
-                        <div class="skill-item"><span>🤖</span> scikit-learn</div>
-                        <div class="skill-item"><span>📊</span> matplotlib</div>
-                        <div class="skill-item"><span>📓</span> Jupyter</div>
-                        <div class="skill-item"><span>📉</span> Seaborn</div>
-                        <div class="skill-item"><span>🗄️</span> SQL</div>
+                <div class="hero__visual">
+                    <div class="hero__profile">
+                        <div class="hero__profile-glow" aria-hidden="true"></div>
+                        <div class="hero__profile-ring" aria-hidden="true"></div>
+                        <div class="hero__profile-frame">
+                            <img src="assets/images/bd4a45d2-6900-4a9e-920a-21a1c41b4893.png" alt="Mohamed Tayal - AI Student and Data Mining Specialist" class="hero__profile-img" loading="eager">
+                        </div>
+                        <div class="hero__profile-badge">
+                            <span aria-hidden="true">🎓</span> AI Student
+                        </div>
                     </div>
+                    
+                    <div class="hero__tag hero__tag--1"><span aria-hidden="true">🤖</span> Machine Learning</div>
+                    <div class="hero__tag hero__tag--2"><span aria-hidden="true">🐍</span> Python</div>
+                    <div class="hero__tag hero__tag--3"><span aria-hidden="true">📈</span> Analytics</div>
+                    <div class="hero__tag hero__tag--4"><span aria-hidden="true">🧠</span> Deep Learning</div>
+                    
+                    <div class="hero__orb" aria-hidden="true"></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How I Make It Easy Section -->
-    <section class="easy-section" id="easy">
-        <div class="easy-section__container">
-            <div class="easy-section__header">
-                <h2 class="easy-section__title">
-                    <span class="easy-section__title-accent">How I Make</span>
-                    <span class="easy-section__title-main">Data Mining Easy</span>
-                </h2>
-                <svg class="easy-section__curve" viewBox="0 0 200 20" fill="none">
-                    <path d="M0 15 Q50 0 100 10 T200 5" stroke="url(#curveGradient)" stroke-width="3" stroke-linecap="round" fill="none"/>
-                    <defs>
-                        <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#00D6E0"/>
-                            <stop offset="100%" stop-color="#6C3CFF"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <p class="easy-section__subtitle">Simplifying complex concepts through structured learning and practice</p>
             </div>
             
-            <div class="easy-cards">
-                <div class="easy-card">
-                    <div class="easy-card__icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <rect x="12" y="8" width="40" height="48" rx="4" stroke="#00D6E0" stroke-width="2.5"/>
-                            <path d="M20 20h24M20 28h24M20 36h16" stroke="#00D6E0" stroke-width="2" stroke-linecap="round"/>
-                            <circle cx="44" cy="44" r="12" fill="#00D6E0" opacity="0.2"/>
-                            <path d="M40 44l3 3 6-6" stroke="#00D6E0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="easy-card__title">Practice</h3>
-                    <p class="easy-card__desc">Hands-on exercises and repeated practice until the concept becomes solid and intuitive.</p>
+            <div class="hero__scroll" aria-hidden="true">
+                <span>Scroll to explore</span>
+                <div class="hero__scroll-bar"><div class="hero__scroll-dot"></div></div>
+            </div>
+        </section>
+ 
+       <!-- About Section -->
+        <section class="about" id="about" aria-labelledby="about-title">
+            <div class="about__container">
+                <div class="section-head">
+                    <span class="section-head__tag">About</span>
+                    <h2 class="section-head__title" id="about-title">Data Mining Journey</h2>
+                    <p class="section-head__desc">Exploring the science of discovering patterns in large datasets</p>
                 </div>
                 
-                <div class="easy-card">
-                    <div class="easy-card__icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <circle cx="20" cy="44" r="6" fill="#6C3CFF" opacity="0.3"/>
-                            <circle cx="44" cy="20" r="6" fill="#00D6E0" opacity="0.3"/>
-                            <circle cx="20" cy="44" r="3" fill="#6C3CFF"/>
-                            <circle cx="44" cy="20" r="3" fill="#00D6E0"/>
-                            <path d="M20 44L32 32L44 20" stroke="#6C3CFF" stroke-width="2" stroke-dasharray="4 2"/>
-                            <path d="M28 24l8-8M36 16l4 4" stroke="#00D6E0" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
+                <!-- About Profile Card -->
+                <div class="about__profile-card">
+                    <div class="about__profile-photo">
+                        <div class="about__profile-glow" aria-hidden="true"></div>
+                        <div class="about__profile-frame">
+                            <img src="assets/images/bd4a45d2-6900-4a9e-920a-21a1c41b4893.png" alt="Mohamed Tayal profile photo" class="about__profile-img" loading="lazy">
+                        </div>
                     </div>
-                    <h3 class="easy-card__title">Guidance</h3>
-                    <p class="easy-card__desc">Structured explanations that prepare you for every step of your data journey.</p>
+                    <div class="about__profile-info">
+                        <h3 class="about__profile-name">Mohamed Tayal</h3>
+                        <p class="about__profile-role">AI Student & Data Mining Specialist</p>
+                        <p class="about__profile-bio">Passionate about transforming raw data into meaningful insights. Currently pursuing AI at Delta University with a focus on machine learning and data mining techniques.</p>
+                        <div class="about__profile-tags">
+                            <span>🎓 Delta University</span>
+                            <span>🤖 AI Enthusiast</span>
+                            <span>📊 Data Lover</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="easy-card">
-                    <div class="easy-card__icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <ellipse cx="32" cy="44" rx="20" ry="8" stroke="#00D6E0" stroke-width="2"/>
-                            <path d="M32 12v24" stroke="#6C3CFF" stroke-width="2.5"/>
-                            <path d="M24 20l8-8 8 8" stroke="#6C3CFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="32" cy="36" r="4" fill="#00D6E0"/>
-                        </svg>
+                <div class="about__grid">
+                    <div class="about__main">
+                        <h3 class="about__heading">Course Overview</h3>
+                        <p class="about__text">
+                            The Data Mining course at Delta University provides comprehensive training in extracting 
+                            valuable knowledge from large datasets. Through hands-on projects and theoretical foundations, 
+                            I've developed expertise in the complete data mining pipeline.
+                        </p>
+                        
+                        <div class="about__topics">
+                            <article class="topic-card">
+                                <span class="topic-card__icon" aria-hidden="true">🔧</span>
+                                <div class="topic-card__content">
+                                    <strong>Data Preprocessing</strong>
+                                    <p>Cleaning, normalization, handling missing values</p>
+                                </div>
+                            </article>
+                            <article class="topic-card">
+                                <span class="topic-card__icon" aria-hidden="true">⚙️</span>
+                                <div class="topic-card__content">
+                                    <strong>Feature Engineering</strong>
+                                    <p>Selection, extraction, transformation</p>
+                                </div>
+                            </article>
+                            <article class="topic-card">
+                                <span class="topic-card__icon" aria-hidden="true">🧠</span>
+                                <div class="topic-card__content">
+                                    <strong>Modeling Techniques</strong>
+                                    <p>Classification, clustering, association rules</p>
+                                </div>
+                            </article>
+                            <article class="topic-card">
+                                <span class="topic-card__icon" aria-hidden="true">📊</span>
+                                <div class="topic-card__content">
+                                    <strong>Model Evaluation</strong>
+                                    <p>Cross-validation, metrics, hyperparameter tuning</p>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                    <h3 class="easy-card__title">Compete</h3>
-                    <p class="easy-card__desc">Challenge yourself with tasks and mini-competitions to boost your analytical skills.</p>
-                </div>
-                
-                <div class="easy-card">
-                    <div class="easy-card__icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <rect x="8" y="16" width="28" height="20" rx="10" stroke="#00D6E0" stroke-width="2.5"/>
-                            <rect x="28" y="28" width="28" height="20" rx="10" stroke="#6C3CFF" stroke-width="2.5"/>
-                            <circle cx="16" cy="26" r="2" fill="#00D6E0"/>
-                            <circle cx="22" cy="26" r="2" fill="#00D6E0"/>
-                            <circle cx="28" cy="26" r="2" fill="#00D6E0"/>
-                            <circle cx="36" cy="38" r="2" fill="#6C3CFF"/>
-                            <circle cx="42" cy="38" r="2" fill="#6C3CFF"/>
-                            <circle cx="48" cy="38" r="2" fill="#6C3CFF"/>
-                        </svg>
-                    </div>
-                    <h3 class="easy-card__title">Engage</h3>
-                    <p class="easy-card__desc">Discussion groups where you can ask, share, and explore ideas with others.</p>
+                    
+                    <aside class="about__skills">
+                        <h3 class="about__heading">Skills & Tools</h3>
+                        <div class="skills-grid" role="list">
+                            <div class="skill-item" role="listitem"><span aria-hidden="true">🐍</span> Python</div>
+                            <div class="skill-item" role="listitem"><span aria-hidden="true">🐼</span> pandas</div>
+                            <div class="skill-item" role="listitem"><span aria-hidden="true">🔢</span> NumPy</div>
+                            <div class="skill-item" role="listitem"><span aria-hidden="true">🤖</span> scikit-learn</div>
+                            <div class="skill-item" role="listitem"><span aria-hidden="true">📊</span> matplotlib</div>
+                            <div class="skill-item" role="listitem"><span aria-hidden="true">📓</span> Jupyter</div>
+                            <div class="skill-item" role="listitem"><span aria-hidden="true">📉</span> Seaborn</div>
+                            <div class="skill-item" role="listitem"><span aria-hidden="true">🗄️</span> SQL</div>
+                        </div>
+                    </aside>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why Choose Me Section -->
-    <section class="why-me" id="why-me">
-        <div class="why-me__bg">
-            <div class="why-me__glow why-me__glow--1"></div>
-            <div class="why-me__glow why-me__glow--2"></div>
-        </div>
-        
-        <div class="why-me__container">
-            <div class="section-head section-head--light">
-                <span class="section-head__tag">Why Me</span>
-                <h2 class="section-head__title">Why Choose Me?</h2>
-                <p class="section-head__desc">What makes my work and learning approach unique</p>
+        <!-- How I Make It Easy Section -->
+        <section class="easy-section" id="easy" aria-labelledby="easy-title">
+            <div class="easy-section__container">
+                <div class="easy-section__header">
+                    <h2 class="easy-section__title" id="easy-title">
+                        <span class="easy-section__title-accent">How I Make</span>
+                        <span class="easy-section__title-main">Data Mining Easy</span>
+                    </h2>
+                    <svg class="easy-section__curve" viewBox="0 0 200 20" fill="none" aria-hidden="true">
+                        <path d="M0 15 Q50 0 100 10 T200 5" stroke="url(#curveGradient)" stroke-width="3" stroke-linecap="round" fill="none"/>
+                        <defs>
+                            <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#00D6E0"/>
+                                <stop offset="100%" stop-color="#6C3CFF"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <p class="easy-section__subtitle">Simplifying complex concepts through structured learning and practice</p>
+                </div>
+                
+                <div class="easy-cards">
+                    <article class="easy-card">
+                        <div class="easy-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <rect x="12" y="8" width="40" height="48" rx="4" stroke="#00D6E0" stroke-width="2.5"/>
+                                <path d="M20 20h24M20 28h24M20 36h16" stroke="#00D6E0" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="44" cy="44" r="12" fill="#00D6E0" opacity="0.2"/>
+                                <path d="M40 44l3 3 6-6" stroke="#00D6E0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="easy-card__title">Practice</h3>
+                        <p class="easy-card__desc">Hands-on exercises and repeated practice until the concept becomes solid and intuitive.</p>
+                    </article>
+                    
+                    <article class="easy-card">
+                        <div class="easy-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <circle cx="20" cy="44" r="6" fill="#6C3CFF" opacity="0.3"/>
+                                <circle cx="44" cy="20" r="6" fill="#00D6E0" opacity="0.3"/>
+                                <circle cx="20" cy="44" r="3" fill="#6C3CFF"/>
+                                <circle cx="44" cy="20" r="3" fill="#00D6E0"/>
+                                <path d="M20 44L32 32L44 20" stroke="#6C3CFF" stroke-width="2" stroke-dasharray="4 2"/>
+                                <path d="M28 24l8-8M36 16l4 4" stroke="#00D6E0" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="easy-card__title">Guidance</h3>
+                        <p class="easy-card__desc">Structured explanations that prepare you for every step of your data journey.</p>
+                    </article>
+                    
+                    <article class="easy-card">
+                        <div class="easy-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <ellipse cx="32" cy="44" rx="20" ry="8" stroke="#00D6E0" stroke-width="2"/>
+                                <path d="M32 12v24" stroke="#6C3CFF" stroke-width="2.5"/>
+                                <path d="M24 20l8-8 8 8" stroke="#6C3CFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="32" cy="36" r="4" fill="#00D6E0"/>
+                            </svg>
+                        </div>
+                        <h3 class="easy-card__title">Compete</h3>
+                        <p class="easy-card__desc">Challenge yourself with tasks and mini-competitions to boost your analytical skills.</p>
+                    </article>
+                    
+                    <article class="easy-card">
+                        <div class="easy-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <rect x="8" y="16" width="28" height="20" rx="10" stroke="#00D6E0" stroke-width="2.5"/>
+                                <rect x="28" y="28" width="28" height="20" rx="10" stroke="#6C3CFF" stroke-width="2.5"/>
+                                <circle cx="16" cy="26" r="2" fill="#00D6E0"/>
+                                <circle cx="22" cy="26" r="2" fill="#00D6E0"/>
+                                <circle cx="28" cy="26" r="2" fill="#00D6E0"/>
+                                <circle cx="36" cy="38" r="2" fill="#6C3CFF"/>
+                                <circle cx="42" cy="38" r="2" fill="#6C3CFF"/>
+                                <circle cx="48" cy="38" r="2" fill="#6C3CFF"/>
+                            </svg>
+                        </div>
+                        <h3 class="easy-card__title">Engage</h3>
+                        <p class="easy-card__desc">Discussion groups where you can ask, share, and explore ideas with others.</p>
+                    </article>
+                </div>
+            </div>
+        </section>""
+ 
+       <!-- Why Choose Me Section -->
+        <section class="why-me" id="why-me" aria-labelledby="why-me-title">
+            <div class="why-me__bg" aria-hidden="true">
+                <div class="why-me__glow why-me__glow--1"></div>
+                <div class="why-me__glow why-me__glow--2"></div>
             </div>
             
-            <div class="why-me__grid">
-                <!-- Left Column -->
-                <div class="why-me__col">
-                    <div class="feature-card">
-                        <div class="feature-card__icon feature-card__icon--purple">
-                            <span>⭐</span>
-                        </div>
-                        <div class="feature-card__content">
-                            <h4 class="feature-card__title">Effective Learning</h4>
-                            <p class="feature-card__desc">I break down complex data problems into simple actionable steps.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-card__icon feature-card__icon--teal">
-                            <span>📘</span>
-                        </div>
-                        <div class="feature-card__content">
-                            <h4 class="feature-card__title">Complete Skillset</h4>
-                            <p class="feature-card__desc">Strong foundation in data mining, machine learning, and analytics.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-card__icon feature-card__icon--purple">
-                            <span>💻</span>
-                        </div>
-                        <div class="feature-card__content">
-                            <h4 class="feature-card__title">Practical Projects</h4>
-                            <p class="feature-card__desc">Real-world projects designed to solve meaningful problems.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-card__icon feature-card__icon--teal">
-                            <span>🔍</span>
-                        </div>
-                        <div class="feature-card__content">
-                            <h4 class="feature-card__title">Strong Analytical Thinking</h4>
-                            <p class="feature-card__desc">Ability to translate raw data into insights and results.</p>
-                        </div>
-                    </div>
+            <div class="why-me__container">
+                <div class="section-head section-head--light">
+                    <span class="section-head__tag">Why Me</span>
+                    <h2 class="section-head__title" id="why-me-title">Why Choose Me?</h2>
+                    <p class="section-head__desc">What makes my work and learning approach unique</p>
                 </div>
                 
-                <!-- Center Illustration -->
-                <div class="why-me__illustration">
-                    <div class="why-me__illustration-wrapper">
-                        <div class="why-me__illustration-glow"></div>
-                        <div class="why-me__illustration-card">
-                            <div class="why-me__avatar">
-                                <div class="why-me__avatar-ring"></div>
-                                <div class="why-me__avatar-inner">
-                                    <img src="assets/images/bd4a45d2-6900-4a9e-920a-21a1c41b4893.png" alt="Mohamed Tayal" class="why-me__avatar-img">
+                <div class="why-me__grid">
+                    <!-- Left Column -->
+                    <div class="why-me__col">
+                        <article class="feature-card">
+                            <div class="feature-card__icon feature-card__icon--purple" aria-hidden="true">
+                                <span>⭐</span>
+                            </div>
+                            <div class="feature-card__content">
+                                <h3 class="feature-card__title">Effective Learning</h3>
+                                <p class="feature-card__desc">I break down complex data problems into simple, actionable steps.</p>
+                            </div>
+                        </article>
+                        
+                        <article class="feature-card">
+                            <div class="feature-card__icon feature-card__icon--teal" aria-hidden="true">
+                                <span>📘</span>
+                            </div>
+                            <div class="feature-card__content">
+                                <h3 class="feature-card__title">Complete Skillset</h3>
+                                <p class="feature-card__desc">Strong foundation in data mining, machine learning, and analytics.</p>
+                            </div>
+                        </article>
+                        
+                        <article class="feature-card">
+                            <div class="feature-card__icon feature-card__icon--purple" aria-hidden="true">
+                                <span>💻</span>
+                            </div>
+                            <div class="feature-card__content">
+                                <h3 class="feature-card__title">Practical Projects</h3>
+                                <p class="feature-card__desc">Real-world projects designed to solve meaningful problems.</p>
+                            </div>
+                        </article>
+                        
+                        <article class="feature-card">
+                            <div class="feature-card__icon feature-card__icon--teal" aria-hidden="true">
+                                <span>🔍</span>
+                            </div>
+                            <div class="feature-card__content">
+                                <h3 class="feature-card__title">Strong Analytical Thinking</h3>
+                                <p class="feature-card__desc">Ability to translate raw data into insights and results.</p>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Center Illustration -->
+                    <div class="why-me__illustration">
+                        <div class="why-me__illustration-wrapper">
+                            <div class="why-me__illustration-glow" aria-hidden="true"></div>
+                            <div class="why-me__illustration-card">
+                                <div class="why-me__avatar">
+                                    <div class="why-me__avatar-ring" aria-hidden="true"></div>
+                                    <div class="why-me__avatar-inner">
+                                        <img src="assets/images/bd4a45d2-6900-4a9e-920a-21a1c41b4893.png" alt="Mohamed Tayal" class="why-me__avatar-img" loading="lazy">
+                                    </div>
+                                </div>
+                                <div class="why-me__illustration-text">
+                                    <span class="why-me__illustration-name">Mohamed Tayal</span>
+                                    <span class="why-me__illustration-role">Data Mining Specialist</span>
+                                </div>
+                                <div class="why-me__illustration-badges">
+                                    <span class="why-me__badge">🐍 Python</span>
+                                    <span class="why-me__badge">🤖 ML</span>
+                                    <span class="why-me__badge">📊 Analytics</span>
                                 </div>
                             </div>
-                            <div class="why-me__illustration-text">
-                                <span class="why-me__illustration-name">Mohamed Tayal</span>
-                                <span class="why-me__illustration-role">Data Mining Specialist</span>
-                            </div>
-                            <div class="why-me__illustration-badges">
-                                <span class="why-me__badge">🐍 Python</span>
-                                <span class="why-me__badge">🤖 ML</span>
-                                <span class="why-me__badge">📊 Analytics</span>
-                            </div>
+                            
+                            <!-- Floating Elements -->
+                            <div class="why-me__float why-me__float--1" aria-hidden="true">📈</div>
+                            <div class="why-me__float why-me__float--2" aria-hidden="true">🧠</div>
+                            <div class="why-me__float why-me__float--3" aria-hidden="true">⚡</div>
+                            <div class="why-me__float why-me__float--4" aria-hidden="true">🎯</div>
                         </div>
+                    </div>
+                    
+                    <!-- Right Column -->
+                    <div class="why-me__col">
+                        <article class="feature-card">
+                            <div class="feature-card__icon feature-card__icon--teal" aria-hidden="true">
+                                <span>🔄</span>
+                            </div>
+                            <div class="feature-card__content">
+                                <h3 class="feature-card__title">Continuous Improvement</h3>
+                                <p class="feature-card__desc">Constantly learning and improving skills through real projects.</p>
+                            </div>
+                        </article>
                         
-                        <!-- Floating Elements -->
-                        <div class="why-me__float why-me__float--1">📈</div>
-                        <div class="why-me__float why-me__float--2">🧠</div>
-                        <div class="why-me__float why-me__float--3">⚡</div>
-                        <div class="why-me__float why-me__float--4">🎯</div>
+                        <article class="feature-card">
+                            <div class="feature-card__icon feature-card__icon--purple" aria-hidden="true">
+                                <span>👥</span>
+                            </div>
+                            <div class="feature-card__content">
+                                <h3 class="feature-card__title">Community Driven</h3>
+                                <p class="feature-card__desc">Active contributor to AI and data science communities.</p>
+                            </div>
+                        </article>
+                        
+                        <article class="feature-card">
+                            <div class="feature-card__icon feature-card__icon--teal" aria-hidden="true">
+                                <span>📈</span>
+                            </div>
+                            <div class="feature-card__content">
+                                <h3 class="feature-card__title">Guided Workflow</h3>
+                                <p class="feature-card__desc">Structured workflow that helps deliver clear and reliable outputs.</p>
+                            </div>
+                        </article>
+                        
+                        <article class="feature-card">
+                            <div class="feature-card__icon feature-card__icon--purple" aria-hidden="true">
+                                <span>📍</span>
+                            </div>
+                            <div class="feature-card__content">
+                                <h3 class="feature-card__title">Learn Anytime</h3>
+                                <p class="feature-card__desc">Flexible and accessible learning and working approach.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects" id="projects" aria-labelledby="projects-title">
+            <div class="projects__container">
+                <div class="section-head">
+                    <span class="section-head__tag">Portfolio</span>
+                    <h2 class="section-head__title" id="projects-title">Featured Projects</h2>
+                    <p class="section-head__desc">Hands-on data mining projects demonstrating practical skills</p>
+                </div>
+                
+                <div class="projects__controls">
+                    <div class="projects__search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                        </svg>
+                        <input type="text" id="projectSearch" placeholder="Search projects..." aria-label="Search projects">
+                    </div>
+                    <div class="projects__filters" id="projectFilters" role="group" aria-label="Filter projects by category">
+                        <button class="filter-btn active" data-filter="all" type="button">All</button>
+                        <button class="filter-btn" data-filter="classification" type="button">Classification</button>
+                        <button class="filter-btn" data-filter="clustering" type="button">Clustering</button>
+                        <button class="filter-btn" data-filter="eda" type="button">EDA</button>
+                        <button class="filter-btn" data-filter="association" type="button">Association</button>
+                        <button class="filter-btn" data-filter="regression" type="button">Regression</button>
                     </div>
                 </div>
                 
-                <!-- Right Column -->
-                <div class="why-me__col">
-                    <div class="feature-card">
-                        <div class="feature-card__icon feature-card__icon--teal">
-                            <span>🔄</span>
-                        </div>
-                        <div class="feature-card__content">
-                            <h4 class="feature-card__title">Continuous Improvement</h4>
-                            <p class="feature-card__desc">Constantly learning and improving skills through real projects.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-card__icon feature-card__icon--purple">
-                            <span>👥</span>
-                        </div>
-                        <div class="feature-card__content">
-                            <h4 class="feature-card__title">Community Driven</h4>
-                            <p class="feature-card__desc">Active contributor to AI and data science communities.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-card__icon feature-card__icon--teal">
-                            <span>📈</span>
-                        </div>
-                        <div class="feature-card__content">
-                            <h4 class="feature-card__title">Guided Workflow</h4>
-                            <p class="feature-card__desc">Structured workflow that helps deliver clear and reliable outputs.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-card__icon feature-card__icon--purple">
-                            <span>📍</span>
-                        </div>
-                        <div class="feature-card__content">
-                            <h4 class="feature-card__title">Learn Anytime</h4>
-                            <p class="feature-card__desc">Flexible and accessible learning and working approach.</p>
-                        </div>
-                    </div>
-                </div>
+                <div class="projects__grid" id="projectsGrid" role="list" aria-live="polite"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="projects__container">
-            <div class="section-head">
-                <span class="section-head__tag">Portfolio</span>
-                <h2 class="section-head__title">Featured Projects</h2>
-                <p class="section-head__desc">Hands-on data mining projects demonstrating practical skills</p>
-            </div>
-            
-            <div class="projects__controls">
-                <div class="projects__search">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-                    </svg>
-                    <input type="text" id="projectSearch" placeholder="Search projects...">
-                </div>
-                <div class="projects__filters" id="projectFilters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="classification">Classification</button>
-                    <button class="filter-btn" data-filter="clustering">Clustering</button>
-                    <button class="filter-btn" data-filter="eda">EDA</button>
-                    <button class="filter-btn" data-filter="association">Association</button>
-                    <button class="filter-btn" data-filter="regression">Regression</button>
-                </div>
-            </div>
-            
-            <div class="projects__grid" id="projectsGrid"></div>
-        </div>
-    </section>
-
-    <!-- Modal -->
-    <div class="modal" id="projectModal">
-        <div class="modal__backdrop"></div>
-        <div class="modal__box">
-            <button class="modal__close" id="modalClose">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6L6 18M6 6l12 12"/>
-                </svg>
-            </button>
-            <div class="modal__body" id="modalContent"></div>
-        </div>
-    </div>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox__close">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-        </button>
-        <img src="" alt="" id="lightboxImage">
-    </div>
-
-    <!-- Certificates Section -->
-    <section class="certificates" id="certificates">
-        <div class="certificates__container">
-            <div class="section-head">
-                <span class="section-head__tag">Achievements</span>
-                <h2 class="section-head__title">Certificates</h2>
-                <p class="section-head__desc">Professional certifications and course completions</p>
-            </div>
-            
-            <div class="certificates__grid" id="certificatesGrid">
-                <!-- Certificate cards rendered by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- PDF Viewer Modal -->
-    <div class="pdf-modal" id="pdfModal">
-        <div class="pdf-modal__backdrop"></div>
-        <div class="pdf-modal__box">
-            <div class="pdf-modal__header">
-                <h3 class="pdf-modal__title" id="pdfModalTitle">Certificate</h3>
-                <button class="pdf-modal__close" id="pdfModalClose">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <!-- Modal -->
+        <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal__backdrop"></div>
+            <div class="modal__box">
+                <button class="modal__close" id="modalClose" aria-label="Close modal" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M18 6L6 18M6 6l12 12"/>
                     </svg>
                 </button>
-            </div>
-            <div class="pdf-modal__body">
-                <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+                <div class="modal__body" id="modalContent"></div>
             </div>
         </div>
-    </div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact__container">
-            <!-- Contact Cards Row -->
-            <div class="contact__row">
-                <!-- Subscribe Card (Left) -->
-                <div class="subscribe-card">
-                    <div class="subscribe-card__content">
-                        <h3 class="subscribe-card__title">Stay Connected</h3>
-                        <p class="subscribe-card__desc">Subscribe or send me a message anytime</p>
-                        <form class="subscribe-card__form" id="subscribeForm">
-                            <div class="subscribe-card__input-wrap">
-                                <input type="email" placeholder="Your email address" class="subscribe-card__input" required>
-                                <button type="submit" class="subscribe-card__btn">Send</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="subscribe-card__visual">
-                        <div class="subscribe-card__envelope">
-                            <svg viewBox="0 0 80 60" fill="none">
-                                <rect x="5" y="10" width="70" height="45" rx="4" fill="white" opacity="0.9"/>
-                                <path d="M5 14L40 35L75 14" stroke="#6C3CFF" stroke-width="2"/>
-                                <path d="M5 55L30 35" stroke="#6C3CFF" stroke-width="2"/>
-                                <path d="M75 55L50 35" stroke="#6C3CFF" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="subscribe-card__plane">
-                            <svg viewBox="0 0 40 40" fill="none">
-                                <path d="M35 5L15 20L20 25L35 5Z" fill="#00D8D8"/>
-                                <path d="M35 5L20 25L25 35L35 5Z" fill="#00B8B8"/>
-                                <path d="M15 20L5 25L20 25L15 20Z" fill="#00D8D8" opacity="0.7"/>
-                            </svg>
-                        </div>
-                        <div class="subscribe-card__dots">
-                            <span></span><span></span><span></span><span></span>
-                        </div>
-                    </div>
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+            <button class="lightbox__close" aria-label="Close image preview" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <img src="" alt="Project preview" id="lightboxImage">
+        </div>""
+      
+  <!-- Certificates Section -->
+        <section class="certificates" id="certificates" aria-labelledby="certificates-title">
+            <div class="certificates__container">
+                <div class="section-head">
+                    <span class="section-head__tag">Achievements</span>
+                    <h2 class="section-head__title" id="certificates-title">Certificates</h2>
+                    <p class="section-head__desc">Professional certifications and course completions</p>
                 </div>
                 
-                <!-- Question Card (Right) -->
-                <div class="question-card">
-                    <h3 class="question-card__title">Have a Question?</h3>
-                    <p class="question-card__desc">
-                        I welcome all inquiries and would be happy to assist you. 
-                        Feel free to reach out for collaborations, project discussions, 
-                        or any questions about data mining and AI.
-                    </p>
-                    <a href="mailto:mohamed.tayal@example.com" class="question-card__btn">
-                        <span>Contact Me</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                <div class="certificates__grid" id="certificatesGrid" role="list"></div>
+            </div>
+        </section>
+
+        <!-- PDF Viewer Modal -->
+        <div class="pdf-modal" id="pdfModal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
+            <div class="pdf-modal__backdrop"></div>
+            <div class="pdf-modal__box">
+                <div class="pdf-modal__header">
+                    <h3 class="pdf-modal__title" id="pdfModalTitle">Certificate</h3>
+                    <button class="pdf-modal__close" id="pdfModalClose" aria-label="Close certificate viewer" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M18 6L6 18M6 6l12 12"/>
                         </svg>
-                    </a>
-                    
-                    <!-- Social Links -->
-                    <div class="question-card__socials">
-                        <a href="mailto:mohamed.tayal@example.com" class="social-link" title="Email">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    </button>
+                </div>
+                <div class="pdf-modal__body">
+                    <iframe id="pdfViewer" src="" title="Certificate PDF viewer"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="contact__container">
+                <div class="section-head">
+                    <span class="section-head__tag">Contact</span>
+                    <h2 class="section-head__title" id="contact-title">Get In Touch</h2>
+                    <p class="section-head__desc">Let's connect and discuss opportunities</p>
+                </div>
+                
+                <!-- Contact Cards Row -->
+                <div class="contact__row">
+                    <!-- Subscribe Card (Left) -->
+                    <div class="contact-card contact-card--primary">
+                        <div class="contact-card__icon-bg" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                 <polyline points="22,6 12,13 2,6"/>
                             </svg>
-                        </a>
-                        <a href="https://github.com/mohamedtayal" target="_blank" class="social-link" title="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </div>
+                        <h3 class="contact-card__title">Stay Connected</h3>
+                        <p class="contact-card__desc">Subscribe or send me a message anytime</p>
+                        <form class="contact-card__form" id="subscribeForm" aria-label="Subscribe form">
+                            <div class="contact-card__input-wrap">
+                                <input type="email" placeholder="Your email address" class="contact-card__input" required aria-label="Email address">
+                                <button type="submit" class="contact-card__btn">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Question Card (Right) -->
+                    <div class="contact-card contact-card--secondary">
+                        <div class="contact-card__icon-bg contact-card__icon-bg--alt" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-card__title">Have a Question?</h3>
+                        <p class="contact-card__desc">Feel free to reach out for collaborations, projects, or any questions about data mining and AI.</p>
+                        <a href="mailto:mohamed.tayal@example.com" class="contact-card__cta">
+                            <span>Contact Me</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
                         </a>
-                        <a href="https://linkedin.com/in/mohamedtayal" target="_blank" class="social-link" title="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
+                        
+                        <!-- Social Links -->
+                        <nav class="contact-card__socials" aria-label="Social media links">
+                            <a href="mailto:mohamed.tayal@example.com" class="social-icon" title="Email" aria-label="Send email">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/mohamedtayal" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub" aria-label="Visit GitHub profile">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://linkedin.com/in/mohamedtayal" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn" aria-label="Visit LinkedIn profile">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </nav>
                     </div>
                 </div>
-            </div>
-            
-            <!-- FAQ Section -->
-            <div class="faq">
-                <h2 class="faq__title">Frequently Asked Questions</h2>
                 
-                <div class="faq__list" id="faqList">
-                    <div class="faq__item">
-                        <button class="faq__question">
-                            <span>Do you accept freelance projects?</span>
-                            <div class="faq__icon"><span></span><span></span></div>
-                        </button>
-                        <div class="faq__answer">
-                            <p>Yes, I'm open to freelance opportunities in data mining, machine learning, and data analysis. Feel free to reach out with your project details and requirements.</p>
-                        </div>
-                    </div>
+                <!-- FAQ Section -->
+                <div class="faq">
+                    <h2 class="faq__title">Frequently Asked Questions</h2>
                     
-                    <div class="faq__item">
-                        <button class="faq__question">
-                            <span>How quickly can you respond?</span>
-                            <div class="faq__icon"><span></span><span></span></div>
-                        </button>
-                        <div class="faq__answer">
-                            <p>I typically respond within 24-48 hours. For urgent matters, please mention it in your message and I'll prioritize accordingly.</p>
+                    <div class="faq__list" id="faqList">
+                        <div class="faq__item">
+                            <button class="faq__question" type="button" aria-expanded="false">
+                                <span>Do you accept freelance projects?</span>
+                                <div class="faq__icon" aria-hidden="true"><span></span><span></span></div>
+                            </button>
+                            <div class="faq__answer">
+                                <p>Yes, I'm open to freelance opportunities in data mining, machine learning, and data analysis. Feel free to reach out with your project details and requirements.</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="faq__item">
-                        <button class="faq__question">
-                            <span>What tools and technologies do you specialize in?</span>
-                            <div class="faq__icon"><span></span><span></span></div>
-                        </button>
-                        <div class="faq__answer">
-                            <p>I specialize in Python, pandas, NumPy, scikit-learn, TensorFlow, and various data visualization libraries. I'm also experienced with SQL databases and Jupyter notebooks for data analysis workflows.</p>
+                        
+                        <div class="faq__item">
+                            <button class="faq__question" type="button" aria-expanded="false">
+                                <span>How quickly can you respond?</span>
+                                <div class="faq__icon" aria-hidden="true"><span></span><span></span></div>
+                            </button>
+                            <div class="faq__answer">
+                                <p>I typically respond within 24-48 hours. For urgent matters, please mention it in your message and I'll prioritize accordingly.</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="faq__item">
-                        <button class="faq__question">
-                            <span>Can you help with academic data mining projects?</span>
-                            <div class="faq__icon"><span></span><span></span></div>
-                        </button>
-                        <div class="faq__answer">
-                            <p>Absolutely! I can provide guidance, code reviews, and mentorship for academic projects related to data mining, machine learning, and statistical analysis.</p>
+                        
+                        <div class="faq__item">
+                            <button class="faq__question" type="button" aria-expanded="false">
+                                <span>What tools and technologies do you specialize in?</span>
+                                <div class="faq__icon" aria-hidden="true"><span></span><span></span></div>
+                            </button>
+                            <div class="faq__answer">
+                                <p>I specialize in Python, pandas, NumPy, scikit-learn, TensorFlow, and various data visualization libraries. I'm also experienced with SQL databases and Jupyter notebooks for data analysis workflows.</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="faq__item">
-                        <button class="faq__question">
-                            <span>What types of datasets can you work with?</span>
-                            <div class="faq__icon"><span></span><span></span></div>
-                        </button>
-                        <div class="faq__answer">
-                            <p>I work with various data types including structured tabular data, time-series data, text data for NLP tasks, and transactional data for pattern mining. I'm comfortable handling both small and large-scale datasets.</p>
+                        
+                        <div class="faq__item">
+                            <button class="faq__question" type="button" aria-expanded="false">
+                                <span>Can you help with academic data mining projects?</span>
+                                <div class="faq__icon" aria-hidden="true"><span></span><span></span></div>
+                            </button>
+                            <div class="faq__answer">
+                                <p>Absolutely! I can provide guidance, code reviews, and mentorship for academic projects related to data mining, machine learning, and statistical analysis.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq__item">
+                            <button class="faq__question" type="button" aria-expanded="false">
+                                <span>What types of datasets can you work with?</span>
+                                <div class="faq__icon" aria-hidden="true"><span></span><span></span></div>
+                            </button>
+                            <div class="faq__answer">
+                                <p>I work with various data types including structured tabular data, time-series data, text data for NLP tasks, and transactional data for pattern mining. I'm comfortable handling both small and large-scale datasets.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
