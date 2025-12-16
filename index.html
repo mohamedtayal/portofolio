@@ -60,6 +60,7 @@
                     <li role="none"><a href="#hero" class="navbar__link active" role="menuitem">Home</a></li>
                     <li role="none"><a href="#about" class="navbar__link" role="menuitem">About</a></li>
                     <li role="none"><a href="#projects" class="navbar__link" role="menuitem">Projects</a></li>
+                    <li role="none"><a href="#tasks" class="navbar__link" role="menuitem">Task Manager</a></li>
                     <li role="none"><a href="#certificates" class="navbar__link" role="menuitem">Certificates</a></li>
                     <li role="none"><a href="#contact" class="navbar__link" role="menuitem">Contact</a></li>
                 </ul>
@@ -555,6 +556,85 @@
             </div>
         </div>
 
+        <!-- Task Manager Section -->
+        <section class="tasks" id="tasks" aria-labelledby="tasks-title">
+            <div class="tasks__container">
+                <div class="section-head">
+                    <span class="section-head__tag">Productivity</span>
+                    <h2 class="section-head__title" id="tasks-title">Task Manager</h2>
+                    <p class="section-head__desc">Plan, prioritize, and track your work in one place</p>
+                </div>
+
+                <div class="tasks__layout">
+                    <form class="task-form" id="taskForm" aria-label="Create a new task">
+                        <div class="task-form__row">
+                            <div class="task-form__field">
+                                <label for="taskTitle">Task</label>
+                                <input type="text" id="taskTitle" name="title" placeholder="Define the next action" required>
+                            </div>
+                        </div>
+
+                        <div class="task-form__row task-form__row--split">
+                            <div class="task-form__field">
+                                <label for="taskPriority">Priority</label>
+                                <div class="task-form__select">
+                                    <select id="taskPriority" name="priority" aria-label="Task priority">
+                                        <option value="high">High</option>
+                                        <option value="medium" selected>Medium</option>
+                                        <option value="low">Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="task-form__field">
+                                <label for="taskDue">Due date</label>
+                                <input type="date" id="taskDue" name="due">
+                            </div>
+                        </div>
+
+                        <button class="task-form__submit" type="submit">
+                            <span>Create Task</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <div class="tasks__panel">
+                        <div class="tasks__toolbar">
+                            <div class="tasks__filters" id="taskFilters" role="group" aria-label="Filter tasks">
+                                <button class="filter-btn active" type="button" data-filter="all">All</button>
+                                <button class="filter-btn" type="button" data-filter="active">Active</button>
+                                <button class="filter-btn" type="button" data-filter="done">Completed</button>
+                            </div>
+                            <div class="tasks__search">
+                                <input type="search" id="taskSearch" placeholder="Search tasks" aria-label="Search tasks">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="tasks__stats" id="taskStats">
+                            <div class="tasks__stat">
+                                <span class="tasks__stat-label">Open</span>
+                                <strong class="tasks__stat-value" data-stat="active">0</strong>
+                            </div>
+                            <div class="tasks__stat">
+                                <span class="tasks__stat-label">Completed</span>
+                                <strong class="tasks__stat-value" data-stat="done">0</strong>
+                            </div>
+                            <div class="tasks__progress">
+                                <div class="tasks__progress-bar" id="taskProgress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+                            </div>
+                        </div>
+
+                        <div class="tasks__list" id="taskList" role="list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="contact" id="contact" aria-labelledby="contact-title">
             <div class="contact__container">
@@ -692,6 +772,7 @@
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/projects.js"></script>
     <script src="assets/js/animations.js"></script>
+    <script src="assets/js/tasks.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
